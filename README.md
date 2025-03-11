@@ -158,6 +158,11 @@ To run `syn_udp.py` and other scripts on Windows, set up WSL with Ubuntu:
      ```
    - Review the detailed output for detected attacks, including WebSocket-specific patterns.
 
+
+   ![Screenshot](image/Screenshot%202025-03-11%20184345.png)
+
+   ---
+
 4. **Customization**:
    - Modify `TARGET_IP`, `PORT`, `NUM_THREADS`, and `REQUESTS_PER_THREAD` in each script.
    - Update `attack_signatures` in `detection.py` to include WebSocket-specific patterns (e.g., `ws`, `upgrade: websocket`).
