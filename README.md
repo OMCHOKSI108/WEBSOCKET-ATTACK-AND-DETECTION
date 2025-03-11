@@ -1,11 +1,12 @@
  
 
-# WEBSOCKETS ATTACK AND ITS DETECTION PROJECT 
+# WebSockets Attack and Detection Project
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.x-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Ubuntu%20|%20Windows%20(WSL)-lightgrey.svg)
 
-Welcome to the **DDoS Attack Simulation Toolkit**, a project by **Om Choksi**. This repository contains a collection of Python scripts designed for educational purposes to simulate various types of Denial-of-Service (DoS) and Distributed Denial-of-Service (DDoS) attacks. Additionally, it includes a packet analysis tool to detect and analyze attack patterns from CSV data.
+Welcome to the **WebSockets Attack and Detection Project**, a project by **Om Choksi (OMCHOKSI108)**. This repository contains a collection of Python scripts designed for educational purposes to simulate various Denial-of-Service (DoS), Distributed Denial-of-Service (DDoS), and WebSocket-based attacks,MALFORMED PACKET ATTACK , HEADER INJECTION. These attacks, including those leveraging WebSocket protocols, are captured using Wireshark for analysis. The project also includes a packet analysis tool to detect and evaluate attack patterns from CSV data.
 
 > **Disclaimer**: This toolkit is intended for **educational and research purposes only**. Unauthorized use of these scripts against systems without explicit permission is illegal and unethical. Use responsibly and within legal boundaries.
 
@@ -24,9 +25,10 @@ Welcome to the **DDoS Attack Simulation Toolkit**, a project by **Om Choksi**. T
 ---
 
 ## Features
-- Simulate various DoS/DDoS attacks with GUI interfaces using `tkinter`.
-- Analyze attack packets from CSV files with detailed detection and impact assessment.
-- Multi-threaded attack implementations for realistic simulation.
+- Simulate DoS, DDoS, and WebSocket-based attacks with GUI interfaces using `tkinter`.
+- Capture and analyze attack packets (including WebSocket traffic) using Wireshark and CSV exports.
+- Detect and assess attack patterns with a custom analysis tool.
+- Multi-threaded implementations for realistic attack simulation.
 - Cross-platform support (Ubuntu natively, Windows via WSL for `syn_udp.py`).
 
 ---
@@ -39,7 +41,9 @@ Welcome to the **DDoS Attack Simulation Toolkit**, a project by **Om Choksi**. T
 | `malformed_packet_attack.py` | Sends oversized/malformed HTTP packets to disrupt servers.           | Malformed Packet Attack |
 | `slowloris_attack.py`   | Implements a Slowloris attack to exhaust server connections.              | Slowloris Attack        |
 | `syn_udp.py`            | Launches SYN/UDP floods using `hping3` (Ubuntu only, WSL on Windows).     | SYN/UDP Flood           |
-| `detection.py`          | Analyzes CSV packet captures to detect and assess attack patterns.        | Analysis Tool           |
+| `detection.py`          | Analyzes CSV packet captures (including WebSocket traffic) to detect and assess attack patterns. | Analysis Tool      |
+
+> **Note**: WebSocket-specific attacks can be simulated by modifying payloads in scripts like `dos_attack.py` or `header_injection_attack.py` to target WebSocket endpoints (e.g., `ws://` or `wss://`). Traffic is captured using Wireshark and exported as CSV for analysis with `detection.py`.
 
 ---
 
@@ -47,10 +51,11 @@ Welcome to the **DDoS Attack Simulation Toolkit**, a project by **Om Choksi**. T
 - **Python 3.x**: Required for all scripts.
 - **Ubuntu**: Native support for all scripts (including `syn_udp.py`).
 - **Windows**: Requires WSL (Windows Subsystem for Linux) for `syn_udp.py`.
+- **Wireshark**: For capturing WebSocket and other attack traffic.
 - **Dependencies**: 
   - `tkinter` (GUI library)
   - `hping3` (for `syn_udp.py`)
-- **CSV File**: For `detection.py`, a packet capture in CSV format (e.g., from Wireshark).
+- **CSV File**: Packet captures in CSV format (e.g., from Wireshark) for `detection.py`.
 
 ---
 
@@ -69,14 +74,18 @@ Welcome to the **DDoS Attack Simulation Toolkit**, a project by **Om Choksi**. T
    ```bash
    sudo apt install hping3 -y
    ```
-4. **Clone the Repository**:
+4. **Install Wireshark** (optional, for capturing WebSocket traffic):
    ```bash
-   git clone https://github.com/omchoksi108/ddos-attack-toolkit.git
-   cd ddos-attack-toolkit
+   sudo apt install wireshark -y
+   ```
+5. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/OMCHOKSI108/websockets-attack-detection.git
+   cd websockets-attack-detection
    ```
 
 ### Windows (via WSL)
-To run `syn_udp.py` on Windows, you need to set up WSL with Ubuntu:
+To run `syn_udp.py` and other scripts on Windows, set up WSL with Ubuntu:
 
 1. **Enable WSL**:
    Open PowerShell as Administrator and run:
@@ -108,13 +117,13 @@ To run `syn_udp.py` on Windows, you need to set up WSL with Ubuntu:
    Inside the WSL Ubuntu terminal:
    ```bash
    sudo apt update && sudo apt upgrade -y
-   sudo apt install python3 python3-tk hping3 -y
+   sudo apt install python3 python3-tk hping3 wireshark -y
    ```
 
 7. **Clone the Repository**:
    ```bash
-   git clone https://github.com/omchoksi/ddos-attack-toolkit.git
-   cd ddos-attack-toolkit
+   git clone https://github.com/OMCHOKSI108/websockets-attack-detection.git
+   cd websockets-attack-detection
    ```
 
 ---
@@ -125,26 +134,33 @@ To run `syn_udp.py` on Windows, you need to set up WSL with Ubuntu:
      ```bash
      python3 dos_attack.py
      ```
-   - A GUI will launch. Click "Run Attack" to start and "Exit" to stop.
+     - A GUI will launch. Click "Run Attack" to start and "Exit" to stop.
+     - To target WebSocket endpoints, modify `TARGET_IP` to a WebSocket server (e.g., `ws://example.com`).
    - For `syn_udp.py` (Ubuntu/WSL only):
      ```bash
      python3 syn_udp.py
      ```
      Select the attack type (SYN Flood, UDP Flood, or Slowloris) and provide target IP/port.
 
-2. **Analyze Packets**:
+2. **Capture Traffic with Wireshark**:
+   - Launch Wireshark: `wireshark &`
+   - Filter for WebSocket traffic (e.g., `http.request or tcp.port == 80 or ws`).
+   - Export captured packets as CSV (File > Export Objects > CSV).
+
+3. **Analyze Packets**:
    - Edit `detection.py` to point to your CSV file:
      ```python
-     csv_file = "path/to/your/final_attack.csv"
+     csv_file = "path/to/your/websocket_attack.csv"
      ```
    - Run the script:
      ```bash
      python3 detection.py
      ```
-   - Review the detailed output of detected attacks.
+   - Review the detailed output for detected attacks, including WebSocket-specific patterns.
 
-3. **Customization**:
-   - Modify `TARGET_IP`, `PORT`, `NUM_THREADS`, and `REQUESTS_PER_THREAD` in each script as needed.
+4. **Customization**:
+   - Modify `TARGET_IP`, `PORT`, `NUM_THREADS`, and `REQUESTS_PER_THREAD` in each script.
+   - Update `attack_signatures` in `detection.py` to include WebSocket-specific patterns (e.g., `ws`, `upgrade: websocket`).
 
 ---
 
@@ -156,7 +172,7 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/your-feature`).
 5. Open a Pull Request.
 
-Feel free to report bugs or suggest enhancements via the [Issues](https://github.com/omchoksi/ddos-attack-toolkit/issues) tab.
+Report bugs or suggest enhancements via the [Issues](https://github.com/OMCHOKSI108/websockets-attack-detection/issues) tab.
 
 ---
 
@@ -167,11 +183,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 - **Author**: Om Choksi
-- **GitHub**: [omchoksi108](https://github.com/omchoksi108)
-- **Email**: omchoksi108@example.com (replace with your email)
-
-Happy coding, and use this toolkit responsibly!
-
----
+- **GitHub**: [OMCHOKSI108](https://github.com/OMCHOKSI108)
+- **Email**: omchoksi108@gmail.com
 
  
