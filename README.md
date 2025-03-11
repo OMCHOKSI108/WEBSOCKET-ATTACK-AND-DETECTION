@@ -73,6 +73,6 @@ WebSocket_Detection_Tool/
 This tool is for **educational and research purposes only.** It should **only** be used in authorized test environments. The developers are not responsible for any misuse.
 
 ---
-**Author:** [OM CHOKSI],[KAUSTAV DAS]  
+**Author:** OM CHOKSI,KAUSTAV DAS
 **License:** MIT
 
