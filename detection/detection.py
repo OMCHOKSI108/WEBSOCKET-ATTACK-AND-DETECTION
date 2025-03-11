@@ -117,5 +117,5 @@ def analyze_csv(csv_file):
     print("-" * 50)
 
 if __name__ == "__main__":
-    csv_file = "data\final_attack.csv "  # Your CSV file
+    csv_file = "final_attack.csv" # Your CSV file
     analyze_csv(csv_file)
