@@ -130,12 +130,17 @@ To run `syn_udp.py` and other scripts on Windows, set up WSL with Ubuntu:
 
 ## Usage
 1. **Run Attack Scripts**:
-   - For Python-based scripts (e.g., `dos_attack.py`, `slowloris_attack.py`):
+   - For Python-based scripts (e.g., `dos_attack.py`, `slowloris_attack.py`,`malformed_packet_attack.py`,`slowloris_attack.py`,`syn_udp.py`):
      ```bash
-     python3 dos_attack.py
+      python3 dos_attack.py
+      python3 dos_attack.py
+      python3 slowloris_attack.py 
+      python3 malformed_packet_attack.py python3 slowloris_attack.py
+      
      ```
      - A GUI will launch. Click "Run Attack" to start and "Exit" to stop.
      - To target WebSocket endpoints, modify `TARGET_IP` to a WebSocket server (e.g., `ws://example.com`).
+
    - For `syn_udp.py` (Ubuntu/WSL only):
      ```bash
      python3 syn_udp.py
