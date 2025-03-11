@@ -167,17 +167,11 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 - **Author**: Om Choksi
-- **GitHub**: [omchoksi](https://github.com/omchoksi)
-- **Email**: omchoksi@example.com (replace with your email)
+- **GitHub**: [omchoksi108](https://github.com/omchoksi108)
+- **Email**: omchoksi108@example.com (replace with your email)
 
 Happy coding, and use this toolkit responsibly!
 
 ---
 
-### Notes for You (Om Choksi):
-1. **Repository Setup**: Replace `https://github.com/omchoksi/ddos-attack-toolkit.git` with your actual GitHub repository URL once created.
-2. **Email**: Update the `omchoksi@example.com` placeholder with your real email.
-3. **License File**: Create a `LICENSE` file in your repo with the MIT License text if you choose that license.
-4. **Testing**: Test the WSL instructions on a Windows machine to ensure accuracy.
-
-This `README.md` makes your project look professional, provides clear instructions, and aligns with GitHub best practices. Let me know if you'd like any tweaks!
+ 
