@@ -24,6 +24,8 @@ Welcome to the **WebSockets Attack and Detection Project**, a project by **Om Ch
 
 ---
 
+
+
 ## Features
 - Simulate DoS, DDoS, and WebSocket-based attacks with GUI interfaces using `tkinter`.
 - Capture and analyze attack packets (including WebSocket traffic) using Wireshark and CSV exports.
